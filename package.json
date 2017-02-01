@@ -1,0 +1,35 @@
+{
+  "name": "vlad.cherniavsky",
+  "version": "1.0.0",
+  "main": "app",
+  "repository": "https://github.com/VladCherniavsky/CarWatch.git",
+  "author": "vladcherniavsky <vlad.cherniavsky@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "npm-run-all --parallel  start:server lint:watch",
+    "start:server": "nodemon app.js --exec babel-node",
+    "lint": "node_modules/.bin/esw -f simple-success --fix ./**.js",
+    "lint:watch": "npm run lint -- --watch",
+    "lint:build": "eslint ./**.js"
+  },
+  "pre-commit": [
+    "lint:build"
+  ],
+  "dependencies": {
+    "babel-cli": "^6.22.2",
+    "babel-core": "^6.22.1",
+    "babel-eslint": "^7.1.1",
+    "babel-preset-es2017-node7": "^0.4.1",
+    "eslint": "^3.14.0",
+    "eslint-config-google": "^0.7.1",
+    "eslint-watch": "^2.1.14",
+    "express": "^4.14.1",
+    "global": "^4.3.1",
+    "nodemon": "^1.11.0",
+    "pre-commit": "^1.2.2",
+    "socket.io": "^1.7.2"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.0.1"
+  }
+}
